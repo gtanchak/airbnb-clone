@@ -4,9 +4,8 @@ import {
   GlobeAltIcon,
   MenuIcon,
   UserCircleIcon,
-  UserIcon,
 } from "@heroicons/react/solid";
-import { AirbnbLogo } from "../public/assets/images";
+import { AirbnbLogo } from "../../public/assets/images";
 
 const Header = () => {
   return (
