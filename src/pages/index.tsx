@@ -3,14 +3,18 @@ import Head from "next/head";
 
 import Banner from "../components/Banner";
 import Header from "../components/Header";
+import LargeCard from "../components/LargeCard";
 import SmallCard from "../components/SmallCard";
-import { IExploreData } from "../interfaces";
+import { ICardData, IExploreData } from "../interfaces";
+import MediumCard from "./../components/MediumCard";
+import { LargeBannerImg } from "../../public/assets/images";
 
 interface Props {
   exploreData: IExploreData[];
+  cardsData: ICardData[];
 }
 
-const Home: NextPage<Props> = ({ exploreData }) => {
+const Home: NextPage<Props> = ({ exploreData, cardsData }) => {
   return (
     <div>
       <Head>
@@ -29,6 +33,22 @@ const Home: NextPage<Props> = ({ exploreData }) => {
             ))}
           </div>
         </section>
+
+        <section>
+          <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
+          <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3">
+            {cardsData.map((data: ICardData, key) => (
+              <MediumCard key={key} data={data} />
+            ))}
+          </div>
+        </section>
+
+        <LargeCard
+          img={LargeBannerImg}
+          title="The Greatest Outdoors"
+          description="Whislits curated by Airbnb."
+          buttonText="Get Inspired."
+        />
       </main>
     </div>
   );
@@ -41,9 +61,14 @@ export const getStaticProps = async () => {
     res.json()
   );
 
+  const cardsData = await fetch("https://jsonkeeper.com/b/VHHT").then((res) =>
+    res.json()
+  );
+
   return {
     props: {
       exploreData,
+      cardsData,
     },
   };
 };
