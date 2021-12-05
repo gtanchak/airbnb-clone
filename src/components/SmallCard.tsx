@@ -8,7 +8,7 @@ interface Props {
 
 const SmallCard: NextPage<Props> = ({ data: { img, location, distance } }) => {
   return (
-    <div className="flex m-2 mt-5 cursor-pointer space-x-4 rounded-xl transform transition duration-200 ease-out items-center hover:bg-gray-100 hover:scale-105">
+    <div className="small-card">
       <div className="relative h-16 w-16">
         <Image src={img} layout="fill" className="rounded-lg" />
       </div>
