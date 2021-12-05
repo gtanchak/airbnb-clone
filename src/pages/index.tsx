@@ -8,6 +8,7 @@ import SmallCard from "../components/SmallCard";
 import { ICardData, IExploreData } from "../interfaces";
 import MediumCard from "./../components/MediumCard";
 import { LargeBannerImg } from "../../public/assets/images";
+import Footer from "../components/Footer";
 
 interface Props {
   exploreData: IExploreData[];
@@ -50,6 +51,8 @@ const Home: NextPage<Props> = ({ exploreData, cardsData }) => {
           buttonText="Get Inspired."
         />
       </main>
+
+      <Footer />
     </div>
   );
 };
