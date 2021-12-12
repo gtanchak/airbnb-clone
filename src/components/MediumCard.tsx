@@ -1,12 +1,12 @@
-import { ICardData } from "../interfaces";
-import { NextPage } from "next";
-import Image from "next/image";
+import { NextPage } from 'next';
+import Image from 'next/image';
+import { ICardData } from '../interfaces';
 
 interface Props {
   data: ICardData;
 }
 
-const MediumCard: NextPage<Props> = ({ data: { img, title } }) => {
+const MediumCard: NextPage<Props> = function ({ data: { img, title } }) {
   return (
     <div className="medium-card">
       <div className="relative h-80 w-80">

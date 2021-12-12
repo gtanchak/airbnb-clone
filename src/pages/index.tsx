@@ -1,21 +1,21 @@
-import { NextPage } from "next";
-import Head from "next/head";
+import { NextPage } from 'next';
+import Head from 'next/head';
 
-import Banner from "../components/Banner";
-import Header from "../components/Header";
-import LargeCard from "../components/LargeCard";
-import SmallCard from "../components/SmallCard";
-import { ICardData, IExploreData } from "../interfaces";
-import MediumCard from "./../components/MediumCard";
-import { LargeBannerImg } from "../../public/assets/images";
-import Footer from "../components/Footer";
+import Banner from '../components/Banner';
+import Header from '../components/Header';
+import LargeCard from '../components/LargeCard';
+import SmallCard from '../components/SmallCard';
+import { ICardData, IExploreData } from '../interfaces';
+import MediumCard from '../components/MediumCard';
+import { LargeBannerImg } from '../../public/assets/images';
+import Footer from '../components/Footer';
 
 interface Props {
   exploreData: IExploreData[];
   cardsData: ICardData[];
 }
 
-const Home: NextPage<Props> = ({ exploreData, cardsData }) => {
+const Home: NextPage<Props> = function ({ exploreData, cardsData }) {
   return (
     <div>
       <Head>
@@ -60,13 +60,9 @@ const Home: NextPage<Props> = ({ exploreData, cardsData }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const exploreData = await fetch("https://jsonkeeper.com/b/4G1G").then((res) =>
-    res.json()
-  );
+  const exploreData = await fetch('https://jsonkeeper.com/b/4G1G').then((res) => res.json());
 
-  const cardsData = await fetch("https://jsonkeeper.com/b/VHHT").then((res) =>
-    res.json()
-  );
+  const cardsData = await fetch('https://jsonkeeper.com/b/VHHT').then((res) => res.json());
 
   return {
     props: {

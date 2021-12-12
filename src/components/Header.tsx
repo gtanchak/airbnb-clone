@@ -1,13 +1,13 @@
-import Image from "next/image";
+import Image from 'next/image';
 import {
   SearchIcon,
   GlobeAltIcon,
   MenuIcon,
   UserCircleIcon,
-} from "@heroicons/react/solid";
-import { AirbnbLogo } from "../../public/assets/images";
+} from '@heroicons/react/solid';
+import { AirbnbLogo } from '../../public/assets/images';
 
-const Header = () => {
+const Header = function () {
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 shadow-md p-5 bg-white md:px-10">
       <div className="relative flex items-center cursor-pointer my-auto h-10">

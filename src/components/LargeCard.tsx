@@ -1,6 +1,5 @@
-import { NextPage } from "next";
-import Image from "next/image";
-import { ReactNode } from "react";
+import { NextPage } from 'next';
+import Image from 'next/image';
 
 interface Props {
   img: StaticImageData;
@@ -9,9 +8,10 @@ interface Props {
   buttonText: string;
 }
 
-const LargeCard: NextPage<Props> = (Props) => {
-  const { img, title, description, buttonText } = Props;
-  console.log(img);
+const LargeCard: NextPage<Props> =  (Props) => {
+  const {
+    img, title, description, buttonText,
+  } = Props;
 
   return (
     <section className="relative py-16 cursor-pointer">

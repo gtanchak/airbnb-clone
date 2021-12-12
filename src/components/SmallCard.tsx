@@ -1,12 +1,12 @@
-import { IExploreData } from "./../interfaces/index";
-import { NextPage } from "next";
-import Image from "next/image";
+import { NextPage } from 'next';
+import Image from 'next/image';
+import { IExploreData } from '../interfaces/index';
 
 interface Props {
   data: IExploreData;
 }
 
-const SmallCard: NextPage<Props> = ({ data: { img, location, distance } }) => {
+const SmallCard: NextPage<Props> = function ({ data: { img, location, distance } }) {
   return (
     <div className="small-card">
       <div className="relative h-16 w-16">
