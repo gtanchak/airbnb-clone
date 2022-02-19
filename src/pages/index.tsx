@@ -1,22 +1,21 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 
-import Banner from '../components/Banner';
-import Header from '../components/Header';
-import LargeCard from '../components/LargeCard';
-import SmallCard from '../components/SmallCard';
-import { ICardData, IExploreData } from '../interfaces';
-import MediumCard from '../components/MediumCard';
-import { LargeBannerImg } from '../../public/assets/images';
-import Footer from '../components/Footer';
+import Banner from 'components/Banner';
+import Header from 'components/Header';
+import LargeCard from 'components/LargeCard';
+import SmallCard from 'components/SmallCard';
+import MediumCard from 'components/MediumCard';
+import Footer from 'components/Footer';
+import { ICardData, IExploreData } from 'interfaces';
+import { LargeBannerImg } from "assets/images";
 
 interface Props {
   exploreData: IExploreData[];
   cardsData: ICardData[];
 }
 
-const Home: NextPage<Props> = function ({ exploreData, cardsData }) {
-  return (
+const Home: NextPage<Props> = ({ exploreData, cardsData }) => (
     <div>
       <Head>
         <title>Create Next App</title>
@@ -29,8 +28,8 @@ const Home: NextPage<Props> = function ({ exploreData, cardsData }) {
         <section className="pt-6">
           <h2 className="text-4xl font-semiboldpb-5">Explore Nearby</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {exploreData?.map((data: IExploreData, key) => (
-              <SmallCard key={key} data={data} />
+            {exploreData?.map((data: IExploreData) => (
+              <SmallCard key={data.location} data={data} />
             ))}
           </div>
         </section>
@@ -38,8 +37,8 @@ const Home: NextPage<Props> = function ({ exploreData, cardsData }) {
         <section>
           <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
           <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3">
-            {cardsData.map((data: ICardData, key) => (
-              <MediumCard key={key} data={data} />
+            {cardsData.map((data: ICardData) => (
+              <MediumCard key={data.title} data={data} />
             ))}
           </div>
         </section>
@@ -55,7 +54,6 @@ const Home: NextPage<Props> = function ({ exploreData, cardsData }) {
       <Footer />
     </div>
   );
-};
 
 export default Home;
 
