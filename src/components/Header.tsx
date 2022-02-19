@@ -5,9 +5,11 @@ import {
   MenuIcon,
   UserCircleIcon,
 } from '@heroicons/react/solid';
-import { AirbnbLogo } from '../../public/assets/images';
+import { AirbnbLogo } from "assets/images";
+import { useState } from "react";
 
-const Header = function () {
+const Header = () => {
+  const [searchInput, setSearchInput] = useState("");
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 shadow-md p-5 bg-white md:px-10">
       <div className="relative flex items-center cursor-pointer my-auto h-10">
@@ -21,6 +23,8 @@ const Header = function () {
 
       <div className="flex items-center md:border-2 py-2 rounded-full md:shadow-sm">
         <input
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
           className="bg-transparent flex-grow pl-5 outline-none text-sm placeholder-gray-400 text-gray-600"
           type="text"
           placeholder="Start your search"
