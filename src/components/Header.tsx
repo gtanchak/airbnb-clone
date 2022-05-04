@@ -1,12 +1,16 @@
 import Image from 'next/image';
+import { DateRangePicker } from "react-date-range";
+
 import {
   SearchIcon,
   GlobeAltIcon,
   MenuIcon,
   UserCircleIcon,
-} from '@heroicons/react/solid';
+} from "@heroicons/react/solid";
 import { AirbnbLogo } from "assets/images";
 import { useState } from "react";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 
 const Header = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -39,6 +43,12 @@ const Header = () => {
           <UserCircleIcon className="h-6" />
         </div>
       </div>
+
+      {searchInput && (
+        <div>
+          <DateRangePicker />
+        </div>
+      )}
     </header>
   );
 };
