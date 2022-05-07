@@ -1,10 +1,10 @@
-export interface ExploreData {
+export interface IExploreData {
   img: string;
   location: string;
   distance: string;
 }
 
-export interface CardData {
+export interface ICardData {
   img: string;
   title: string;
 }
