@@ -14,6 +14,20 @@ import "react-date-range/dist/theme/default.css";
 
 const Header = () => {
   const [searchInput, setSearchInput] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
+  const selectionRange = {
+    startDate,
+    endDate,
+    key: "selection",
+  };
+
+  const handleChange = (ranges: any) => {
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
+  };
+
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 shadow-md p-5 bg-white md:px-10">
       <div className="relative flex items-center cursor-pointer my-auto h-10">
@@ -46,7 +60,12 @@ const Header = () => {
 
       {searchInput && (
         <div>
-          <DateRangePicker />
+          <DateRangePicker
+            ranges={[selectionRange]}
+            minDate={new Date()}
+            rangeColors={["#FD5B61"]}
+            onChange={handleChange}
+          />
         </div>
       )}
     </header>
