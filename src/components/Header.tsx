@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { DateRangePicker, RangeKeyDict } from "react-date-range";
-
 import {
   SearchIcon,
   GlobeAltIcon,
@@ -12,12 +11,15 @@ import { AirbnbLogo } from "assets/images";
 import { FC, useState } from "react";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+import { useRouter } from "next/router";
 
 const Header: FC = () => {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
   const [noOfGuests, setNoOfGuests] = useState(1);
+
+  const router = useRouter();
 
   const handleChange = (rangesByKey: RangeKeyDict) => {
     setStartDate(rangesByKey.selection.startDate);
@@ -28,6 +30,18 @@ const Header: FC = () => {
     setSearchInput("");
   };
 
+  const handleSearch = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate?.toISOString(),
+        endDate: endDate?.toISOString(),
+        noOfGuests,
+      },
+    });
+  };
+
   const selectionRange = {
     startDate,
     endDate,
@@ -36,7 +50,10 @@ const Header: FC = () => {
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 shadow-md p-5 bg-white md:px-10">
-      <div className="relative flex items-center cursor-pointer my-auto h-10">
+      <div
+        onClick={() => router.push("/")}
+        className="relative flex items-center cursor-pointer my-auto h-10"
+      >
         <Image
           src={AirbnbLogo}
           layout="fill"
@@ -44,7 +61,6 @@ const Header: FC = () => {
           objectPosition="left"
         />
       </div>
-
       <div className="flex items-center md:border-2 py-2 rounded-full md:shadow-sm">
         <input
           value={searchInput}
@@ -63,7 +79,6 @@ const Header: FC = () => {
           <UserCircleIcon className="h-6" />
         </div>
       </div>
-
       {searchInput && (
         <div className="flex flex-col col-span-3 mx-auto">
           <DateRangePicker
@@ -90,7 +105,9 @@ const Header: FC = () => {
             <button onClick={resetInput} className="flex-grow text-gray-500">
               Cancel
             </button>
-            <button className="flex-grow text-red-400">Search</button>
+            <button onClick={handleSearch} className="flex-grow text-red-400">
+              Search
+            </button>
           </div>
         </div>
       )}

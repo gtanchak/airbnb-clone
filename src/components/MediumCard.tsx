@@ -1,12 +1,12 @@
-import { NextPage } from 'next';
-import Image from 'next/image';
-import { ICardData } from 'interfaces';
+import Image from "next/image";
+import { ICardData } from "interfaces";
+import { FC } from "react";
 
 interface Props {
   data: ICardData;
 }
 
-const MediumCard: NextPage<Props> = ({ data: { img, title } }) => (
+const MediumCard: FC<Props> = ({ data: { img, title } }) => (
   <div className="medium-card">
     <div className="relative h-80 w-80">
       <Image src={img} layout="fill" className="rounded-xl" />

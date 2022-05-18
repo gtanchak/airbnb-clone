@@ -1,5 +1,5 @@
-import { NextPage } from 'next';
-import Image from 'next/image';
+import Image from "next/image";
+import { FC } from "react";
 
 interface Props {
   // eslint-disable-next-line no-undef
@@ -9,12 +9,7 @@ interface Props {
   buttonText: string;
 }
 
-const LargeCard: NextPage<Props> = ({
-  img,
-  title,
-  description,
-  buttonText,
-}) => (
+const LargeCard: FC<Props> = ({ img, title, description, buttonText }) => (
   <section className="relative py-16 cursor-pointer">
     <div className="relative h-96 min-w-[300px]">
       <Image
