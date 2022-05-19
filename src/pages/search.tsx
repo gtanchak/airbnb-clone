@@ -18,7 +18,7 @@ const Search: NextPage = () => {
 
   return (
     <div>
-      <Header />
+      <Header placeholder={`${location} | ${range} | ${noOfGuests} guest`} />
       <main className="flex">
         <section className="flex-grow pt-14 px-6">
           <p className="text-sm">
