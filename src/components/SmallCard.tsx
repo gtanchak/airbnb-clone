@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { IExploreData } from "interfaces/index";
+import { ExploreData } from "interfaces/index";
 import { FC } from "react";
 
 interface Props {
-  data: IExploreData;
+  data: ExploreData;
 }
 
 const SmallCard: FC<Props> = ({ data: { img, location, distance } }) => (

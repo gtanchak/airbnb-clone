@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { ICardData } from "interfaces";
+import { CardData } from "interfaces";
 import { FC } from "react";
 
 interface Props {
-  data: ICardData;
+  data: CardData;
 }
 
 const MediumCard: FC<Props> = ({ data: { img, title } }) => (
