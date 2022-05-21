@@ -16,7 +16,6 @@ const Footer: FC = () => (
       <p>This is not a real site</p>
       <p>Its a pretty awesome clone</p>
       <p>Referrals Accepted</p>
-      <p>Abhishek Patel</p>
     </div>
     <div className="space-y-4 text-sm text-gray-800">
       <h5 className="font-bold">HOST</h5>

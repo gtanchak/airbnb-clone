@@ -15,6 +15,8 @@ Router.events.on("routeChangeStart", progress.start);
 Router.events.on("routeChangeComplete", progress.finish);
 Router.events.on("routeChangeError", progress.finish);
 
-const MyApp =  ({ Component, pageProps }: AppProps) => <Component {...pageProps} />;
+function MyApp({ Component, pageProps }: AppProps) { 
+    return <Component {...pageProps} />;
+};
 
 export default MyApp;

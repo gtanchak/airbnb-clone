@@ -9,11 +9,17 @@ export interface CardData {
   title: string;
 }
 
-"location": "Private room in center of London",
-"long": -0.0022275,
-"price": "£30 / night",
-"star": 4.73,
-"title": "Stay at this spacious Edwardian House",
-"total": "£117 total",
+export interface SearchResultData {
+  description: string;
+  img: string;
+  lat: number;
+  location: string;
+  long: number;
+  price: string;
+  star: number;
+  title: string;
+  total: string;
+}
+
 
 

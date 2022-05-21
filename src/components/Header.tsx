@@ -13,11 +13,11 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { useRouter } from "next/router";
 
-export interface HeaderProps {
+export interface Props {
   placeholder?: string;
 }
 
-const Header: FC<HeaderProps> = ({ placeholder }) => {
+const Header: FC<Props> = ({ placeholder }) => {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
