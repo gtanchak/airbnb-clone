@@ -1,10 +1,16 @@
 import Footer from "components/Footer";
 import Header from "components/Header";
+import InfoCard from "components/InfoCard";
 import { format } from "date-fns";
+import { SearchResultData } from "interfaces";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
-const Search: NextPage = () => {
+interface Props {
+  searchResult: SearchResultData[];
+}
+
+const Search: NextPage<Props> = ({ searchResult }) => {
   const router = useRouter();
 
   const { location, startDate, endDate, noOfGuests } = router.query;
@@ -35,6 +41,10 @@ const Search: NextPage = () => {
             <p className="searchButton">Rooms and Beds</p>
             <p className="searchButton">More Filters</p>
           </div>
+
+          {searchResult.map((result: SearchResultData) => (
+            <InfoCard key={result.title} result={result} />
+          ))}
         </section>
       </main>
       <Footer />
@@ -43,3 +53,15 @@ const Search: NextPage = () => {
 };
 
 export default Search;
+
+export async function getServerSideProps() {
+  const searchResult = await fetch("https://jsonkeeper.com/b/1W6B").then(
+    (res) => res.json()
+  );
+
+  return {
+    props: {
+      searchResult,
+    },
+  };
+}
