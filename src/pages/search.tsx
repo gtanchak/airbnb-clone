@@ -42,9 +42,11 @@ const Search: NextPage<Props> = ({ searchResult }) => {
             <p className="searchButton">More Filters</p>
           </div>
 
-          {searchResult.map((result: SearchResultData) => (
-            <InfoCard key={result.title} result={result} />
-          ))}
+          <div className="flex flex-col">
+            {searchResult.map((result: SearchResultData) => (
+              <InfoCard key={result.title} result={result} />
+            ))}
+          </div>
         </section>
       </main>
       <Footer />
