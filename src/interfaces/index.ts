@@ -28,5 +28,9 @@ export interface ViewportData {
   longitude: number;
   zoom: number;
 }
+export interface LocationData {
+  latitude: number;
+  longitude: number;
+}
 
 
