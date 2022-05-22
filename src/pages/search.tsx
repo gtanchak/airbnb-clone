@@ -50,8 +50,8 @@ const Search: NextPage<Props> = ({ searchResult }) => {
           </div>
         </section>
 
-        <section className="hidden xl:inline-flex xl:min-w-[600]">
-          <Map />
+        <section className="hidden xl:inline-flex xl:min-w-[600px]">
+          <Map searchResult={searchResult} />
         </section>
       </main>
       <Footer />
