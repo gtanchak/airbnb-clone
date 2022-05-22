@@ -21,5 +21,16 @@ export interface SearchResultData {
   total: string;
 }
 
+export interface ViewportData {
+  width: string;
+  height: string;
+  latitude: number;
+  longitude: number;
+  zoom: number;
+}
+export interface LocationData {
+  latitude: number;
+  longitude: number;
+}
 
 
