@@ -1,6 +1,7 @@
 import Footer from "components/Footer";
 import Header from "components/Header";
 import InfoCard from "components/InfoCard";
+import Map from "components/Map";
 import { format } from "date-fns";
 import { SearchResultData } from "interfaces";
 import { NextPage } from "next";
@@ -47,6 +48,10 @@ const Search: NextPage<Props> = ({ searchResult }) => {
               <InfoCard key={result.title} result={result} />
             ))}
           </div>
+        </section>
+
+        <section className="hidden xl:inline-flex xl:min-w-[600]">
+          <Map />
         </section>
       </main>
       <Footer />
