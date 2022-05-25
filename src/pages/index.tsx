@@ -18,8 +18,7 @@ interface Props {
 const Home: NextPage<Props> = ({ exploreData, cardsData }) => (
   <div>
     <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
+      <title>Airbnb | Hotel Booking</title>
     </Head>
     <Header />
     <Banner />
